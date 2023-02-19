@@ -58,7 +58,7 @@ const HomePage = () => {
               <div className=" h-screen mx-auto p-3  max-w-3xl">
                 <div>
                   <div className="mx-auto text-4xl font-bold text-center font-sans text-violet-500 p-4">
-                    Your Personal Dictonary
+                    Your Personal Dictionary
                   </div>
                 </div>
                 <img className="mx-auto" src={img1} />
