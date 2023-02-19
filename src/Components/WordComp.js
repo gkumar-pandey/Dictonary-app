@@ -96,13 +96,14 @@ const SynoAntoNyms = ({ synonyms }) => {
 
 const WordComp = ({ wordMeaning }) => {
   const { word, meanings, sourceUrls, phonetic, phonetics } = wordMeaning;
-  const audioUrl = phonetics[0].audio;
-  const audio = new Audio(audioUrl);
   const [playing, setPlaying] = useState(false);
-
+  let audio;
   const playingHandler = () => {
     setPlaying(!playing);
-    playing ? audio.play() : audio.pause();
+    if (phonetics.length > 0) {
+      audio = new Audio(phonetics[0].audio);
+    }
+    audio.play();
   };
 
   return (
