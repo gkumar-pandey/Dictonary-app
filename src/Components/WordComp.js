@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BsFillPlayFill, BsPauseFill } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";
-import ReactAudioPlayer from "react-audio-player";
 
 //! divider component
 const Divider = ({ text }) => {
@@ -98,8 +97,7 @@ const SynoAntoNyms = ({ synonyms }) => {
 const WordComp = ({ wordMeaning }) => {
   const { word, meanings, sourceUrls, phonetic, phonetics } = wordMeaning;
   const audioUrl = phonetics[0].audio;
-  console.log(audioUrl);
-  const [audio, setAudio] = useState(new Audio(audioUrl));
+  const audio = new Audio(audioUrl);
   const [playing, setPlaying] = useState(false);
 
   const playingHandler = () => {
@@ -107,7 +105,6 @@ const WordComp = ({ wordMeaning }) => {
     playing ? audio.play() : audio.pause();
   };
 
-  // console.log(wordMeaning);
   return (
     <div className=" max-w-3xl mx-auto p-3 my-5">
       <div className="flex justify-between content-center ">
@@ -120,7 +117,7 @@ const WordComp = ({ wordMeaning }) => {
           className=" rounded-full cursor-pointer bg-violet-200 flex justify-center items-center w-[70px] "
         >
           <div>
-            {playing ? (
+            {!playing ? (
               <BsFillPlayFill className="text-3xl text-violet-700" />
             ) : (
               <BsPauseFill className="text-3xl text-violet-700" />
@@ -156,10 +153,12 @@ const WordComp = ({ wordMeaning }) => {
       <div className="flex ">
         <span className="border border-grey-500 h-0 w-[100%]"></span>
       </div>
-      <div className="flex my-4 items-center">
+      <div className="flex flex-wrap my-4 items-center">
         <div className="text-xl text-gray-600 dark:text-gray-400">Source</div>
         <a target={"_blank"} href={sourceUrls}>
-          <span className="ml-4 dark:text-[#fff]">{sourceUrls}</span>
+          <span className="ml-4 dark:text-[#fff] break-words ">
+            {sourceUrls}
+          </span>
         </a>
         <span className="ml-1">
           <BiLinkExternal className="dark:text-[#fff]" />
