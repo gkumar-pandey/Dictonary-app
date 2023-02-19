@@ -49,7 +49,7 @@ const HomePage = () => {
 
       <>
         {loading ? (
-          <div className="mx-auto h-screen text-center  max-w-3xl">
+          <div className="mx-auto h-screen pt-10 text-center  max-w-3xl">
             <Loader />
           </div>
         ) : (
