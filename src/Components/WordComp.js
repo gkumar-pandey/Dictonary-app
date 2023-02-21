@@ -29,11 +29,9 @@ const MeaningComp = ({ definitions }) => {
           {definitions.map((ele, idx) => {
             const { definition } = ele;
             return (
-              <>
-                <li key={idx} className="my-2 dark:text-[#fff] font-sans">
-                  {definition}
-                </li>
-              </>
+              <li key={idx} className="my-2 dark:text-[#fff] font-sans">
+                {definition}
+              </li>
             );
           })}
         </ul>
@@ -46,16 +44,16 @@ const Antonyms = ({ antonyms }) => {
   return (
     <>
       <div className="my-6 ">
-        <div className="flex items-center">
+        <div className="flex ">
           <div className="text-2xl text-gray-600 dark:text-gray-400 font-serif">
             Antonyms
           </div>
-          <div className="ml-4">
+          <div className="ml-4 flex flex-wrap ">
             {antonyms.map((word, idx) => {
               return (
                 <span
                   key={idx}
-                  className="mx-2 text-xl font-semibold text-violet-500"
+                  className="mx-2   text-xl font-semibold text-violet-500"
                 >
                   {word}
                 </span>
